@@ -50,11 +50,6 @@ Before runnging ```./tfw/main.py -f test/files/input_easy.tf```
         type = bool
         description = "Hellow Adam"
     }
-
-    variable "vincient" {
-        type = list(string)
-        description = ["Hellow", "World"]
-    }
 ```
 
 ### After Example
@@ -74,10 +69,5 @@ Before runnging ```./tfw/main.py -f test/files/input_easy.tf```
     variable "david" {
         type = number
         description = "Hellow David"
-    }
-
-    variable "vincient" {
-        type = list(string)
-        description = "['Hellow', 'World']"
     }
 ```
