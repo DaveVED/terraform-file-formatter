@@ -1,0 +1,6 @@
+venv
+__pycache__
+.*.swp
+.*.swo
+*.pyc
+test/files/junk
