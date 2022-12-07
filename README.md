@@ -10,7 +10,7 @@ Following features exists.
 - [ ] A CLI to read in a potential *three* flags.
     - [ ] `-f` flag to pass in *N* file paths, for `*.tf`.
     - [ ] `-a` flag to have us serach for all `*tf` in the working directory.
-    - [ ]`-r` flag to sort the file content in reverse order.
+    - [ ] `-r` flag to sort the file content in reverse order.
 - [ ] Ability format the provided `*.tf` file(s) content blocks in sorted alphabetical or reverse order. 
 - [ ] Write the formated `*.tf` files to the original file destiation. Providng a sorted/formatted file.
 
