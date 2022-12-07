@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import argparse
 
-from terraform_file import TerraformFile
-from terraform_file_writter import TerraformFileWritter
+from terraform.terraform_file import TerraformFile
+from terraform.terraform_file_writter import TerraformFileWritter
 
 
 def cli():
@@ -22,10 +22,9 @@ def cli():
     # why am i not using click.
     if args.f:
         fp = args.f[0]
-
         tf = TerraformFile(fp)
         tfs = tf.get_sorted_terraform_blocks()
-        tfw = TerraformFileWritter(tfs)
+        tfw = TerraformFileWritter(tfs, None)
     if args.r:
         print("r")
     if args.a:

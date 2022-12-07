@@ -3,7 +3,7 @@ import re
 
 class TerraformFileWritter:
     def __init__(self, blocks: dict, fp: str):
-        self._write_blocks(blocks)
+        self._write_blocks(blocks, fp)
 
     def _format_block(self, name: str, attrs: dict) -> str:
         rex = attrs["type"][2:-1]
