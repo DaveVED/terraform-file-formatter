@@ -8,8 +8,10 @@ class TerraformFile:
 
     def _parse_terrafrom_file(self, fp: str) -> dict:
         dict = None
+
         with open(fp, "r") as file:
             dict = hcl2.load(file)
+
         return dict
 
     def _sort_terraform_blocks(self, fc: dict, ft: str) -> dict:
@@ -22,3 +24,6 @@ class TerraformFile:
 
     def get_sorted_terraform_blocks(self) -> dict:
         return self._sorted
+
+    def get_terraform_file_name(self) -> str:
+        return None

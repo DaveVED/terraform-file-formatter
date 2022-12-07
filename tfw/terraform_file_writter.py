@@ -2,7 +2,7 @@ import re
 
 
 class TerraformFileWritter:
-    def __init__(self, blocks):
+    def __init__(self, blocks: dict, fp: str):
         self._write_blocks(blocks)
 
     def _format_block(self, name: str, attrs: dict) -> str:
@@ -13,7 +13,7 @@ class TerraformFileWritter:
 
         return output
 
-    def _write_blocks(self, blocks: str):
+    def _write_blocks(self, blocks: str, fp: str):
         with open("test/files/junk/temp.tf", "w") as f:
             f.truncate()
 
