@@ -27,8 +27,8 @@ def cli():
             try:
                 if validators.are_terraform_files(file_values):
                     file_content = TerraformFile(file_values).file_content
-                    # if validators.has_valid_block_type(file_content):
-                    print("HELLO WORLD")
+
+                    # TODO: We can loop every file. IFF the content is OK. Go ahead keep the file.
             except NotATerraformFileException as e:
                 print(f"Error: {e}")
 
