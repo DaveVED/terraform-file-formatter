@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 import argparse
+import validators
 
 from terraform.file import TerraformFile
+from exceptions import (
+    NotATerraformFileException,
+    InvalidBlockTypeException,
+    NoValidBlockTypeException,
+)
 
 
 def cli():
@@ -16,15 +22,15 @@ def cli():
     sort_value = args.sort
     file_values = args.file
 
-    files = []
     if sort_value:
         if file_values:
-            for file in file_values:
-                files.append(TerraformFile(file))
-
-    for file in files:
-        temp = file.sort(file.blocks, "variable")
-        print(temp)
+            try:
+                if validators.are_terraform_files(file_values):
+                    file_content = TerraformFile(file_values).file_content
+                    # if validators.has_valid_block_type(file_content):
+                    print("HELLO WORLD")
+            except NotATerraformFileException as e:
+                print(f"Error: {e}")
 
 
 if __name__ == "__main__":
