@@ -1,73 +1,20 @@
 # terraform-file-writter
-Custom python CLI that allows you to create, manipulate, and format terrafrom `*.tf` files.
+Python CLI provding terraform file manipulation (formating) functionality. 
 
-This sovles the issue, of no hasicorp python library to work with hcl files.
-
-## Features
-
-Following features exists.
-
-- [ ] A CLI to read in a potential *three* flags.
-    - [ ] `-f` flag to pass in *N* file paths, for `*.tf`.
-    - [ ] `-a` flag to have us serach for all `*tf` in the working directory.
-    - [ ] `-r` flag to sort the file content in reverse order.
-- [ ] Ability format the provided `*.tf` file(s) content blocks in sorted alphabetical or reverse order. 
-- [ ] Write the formated `*.tf` files to the original file destiation. Providng a sorted/formatted file.
-
-* Right only `*tf` files with *all* `variable` or *all* `output` blocks are supported. Will add in other resource support later. *
-
-
+## Functionality
+This CLI allows your to.
+- [x] Pass in a argument defining what type of file manipulation you would like. 
+    - [x] `./tfw/main.py sort` - Sort a file in alphabetical (or reverse) order
+- [x] Read in one ore more files and store them in a python readable `TerraformFile` object.
+    - [x] `./tfw/main.py sort -file file1 file2` - User provided files
+    - [x] `./tfw/main.py sort` - Serach for all `*.tf` files in the current working directory.
 
 ## Usage.
-Inovke cli with one of the following options.
 
 ```
-    # Pass in a single file. 
-    ./tfw/main.py -f test/files/input_easy.tf
+    # Sort user provided files.
+    ./tfw/main.py sort -file test/files/easy-files/easy1.tf test/files/easy-files/easy2.tf
 
-    # Pass in multi files.
-    ./tfw/main.py -f test/files/input_easy.tf test/files/input_medium.tf
-```
-
-Then you should see your provided files (or all files if using the `-a` flag.) formatted.
-
-### Before Example
-
-Before runnging ```./tfw/main.py -f test/files/input_easy.tf```
-
-```hcl
-    variable "carl" {
-        type = string
-        description = "Hellow Carl...."
-    }
-
-    variable "david" {
-        type = number
-        description = "Hellow David"
-    }
-
-    variable "adam" {
-        type = bool
-        description = "Hellow Adam"
-    }
-```
-
-### After Example
-Before runnging ```./tfw/main.py -f test/files/input_easy.tf```
-
-```hcl
-    variable "adam" {
-        type = bool
-        description = "Hellow Adam"
-    }
-
-    variable "carl" {
-        type = string
-        description = "Hellow Carl...."
-    }
-
-    variable "david" {
-        type = number
-        description = "Hellow David"
-    }
+    # Sort all files in working directory.
+    ./tfw/main.py sort
 ```

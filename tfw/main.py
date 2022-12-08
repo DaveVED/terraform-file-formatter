@@ -1,34 +1,30 @@
 #!/usr/bin/env python3
 import argparse
 
-from terraform.terraform_file import TerraformFile
-from terraform.terraform_file_writter import TerraformFileWritter
+from terraform.file import TerraformFile
 
 
 def cli():
     parser = argparse.ArgumentParser()
-
     parser.add_argument(
-        "-f", nargs=1, type=str, help="flag for doing something with a file"
+        "sort", help="Sort a terraform file in alphabetical (or reverse) order."
     )
-    parser.add_argument("-r", action="store_true", help="flag for doing something else")
-    parser.add_argument("-a", action="store_true", help="flag for doing another thing")
+    parser.add_argument("-file", nargs="+", help="One or more terraform file to sort.")
 
     args = parser.parse_args()
 
-    # add in error handle and help... Cant have f and a..
-    # error check for > 1 file.. We should loop over each one.
-    # for now one file to test.
-    # why am i not using click.
-    if args.f:
-        fp = args.f[0]
-        tf = TerraformFile(fp)
-        tfs = tf.get_sorted_terraform_blocks()
-        tfw = TerraformFileWritter(tfs, None)
-    if args.r:
-        print("r")
-    if args.a:
-        print("a")
+    sort_value = args.sort
+    file_values = args.file
+
+    files = []
+    if sort_value:
+        if file_values:
+            for file in file_values:
+                files.append(TerraformFile(file))
+
+    for file in files:
+        temp = file.sort(file.blocks, "variable")
+        print(temp)
 
 
 if __name__ == "__main__":
