@@ -59,7 +59,6 @@ def cli():
             except NoValidBlockTypeException as e:
                 print(f"Error: {e}")
         else:
-            print("HE")
             raise NoProvidedTerraformfileException([])
 
 
