@@ -1,10 +1,17 @@
 import hcl2
 
+from terraform.block import BlockType, Block
+
 
 class TerraformFile:
     def __init__(self, file_path: str):
         self._file_content = self._parse_terrafrom_file(file_path)
         self._file_path = file_path
+        self._blocks = self._generate_blocks(self._file_content)
+
+    def _generate_blocks(self, file_content: str) -> Block:
+        for key, attrs in file_content.items():
+            block = Block(key, attrs)
 
     def _parse_terrafrom_file(self, file_path: str) -> dict:
         """Parse a Terraform file and return its contents as a dictionary.
@@ -18,7 +25,7 @@ class TerraformFile:
         with open(file_path, "r") as file:
             return hcl2.load(file)
 
-    def sort(self, blocks: dict, block_type: str) -> dict:
+    def sort(self, blocks: dict, block_type: str, order: bool) -> dict:
         """Sort the blocks in a Terraform file by resource type.
 
         Args:
@@ -28,7 +35,7 @@ class TerraformFile:
         Returns:
             dict: The sorted blocks.
         """
-        if block_type == "variable":
+        if block_type == BlockType.variable:
             variables = blocks["variable"]
             sorted_ = sorted(variables, key=lambda d: list(d.keys())[0])
             return sorted_

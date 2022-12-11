@@ -4,3 +4,4 @@ __pycache__
 .*.swo
 *.pyc
 test/files/junk
+.vscode

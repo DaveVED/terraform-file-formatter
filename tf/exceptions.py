@@ -21,3 +21,14 @@ class NoValidBlockTypeException(Exception):
 
     def __init__(self, blocks: dict):
         self.blocks = blocks
+
+
+class NoProvidedTerraformfileException(Exception):
+    """Exception raised when there are no input files to format"""
+
+    def __init__(self, files: list):
+        self.files = files
+        self.message = f"No terraform files provided to format. Give files using the -file flag. For example tf sort -file fileName1"
+
+    def __str__(self) -> str:
+        return self.message

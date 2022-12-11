@@ -1,19 +1,19 @@
-variable "carl" {
+variable "adam" {
     type = string
-    description = "Hellow Carl...."
+    description = "Hello Adam."
+}
+
+variable "bob" {
+    type = number
+    description = "Hello David."
 }
 
 variable "david" {
-    type = number
-    description = "Hellow David"
-}
-
-variable "adam" {
     type = bool
-    description = "Hellow Adam"
+    description = "Hello David."
 }
 
-variable "vincient" {
+variable "taylor" {
     type = list(string)
-    description = ["Hellow", "World"]
+    description = "Hellow Taylor"
 }
