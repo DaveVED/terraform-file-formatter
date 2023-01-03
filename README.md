@@ -35,56 +35,56 @@ Here is an example. Using the following command.
 ```
 ### Before File.
 ```hcl
-    variable "bob" {
-    type = number
-    default = 35
-    description = "Hello David."
-    }
+variable "bob" {
+  type = number
+  default = 35
+  description = "Hello David."
+}
 
-    variable "adam" {
-    type = string
-    default = "Adam"
-    description = "Hello Adam."
-    }
+variable "adam" {
+  type = string
+  default = "Adam"
+  description = "Hello Adam."
+}
 
-    variable "david" {
-    type = bool
-    default = false
-    description = "Hello David."
-    }
+variable "david" {
+  type = bool
+  default = false
+  description = "Hello David."
+}
 
-    variable "taylor" {
-    type = list(string)
-    default = ["T", "A", "Y", "L", "O", "R"]
-    description = "Hellow Taylor"
-    }
+variable "taylor" {
+  type = list(string)
+  default = ["T", "A", "Y", "L", "O", "R"]
+  description = "Hellow Taylor"
+}
 ```
 
 ### After File.
 ```hcl
-    variable "adam" {
-    type = string
-    default = "Adam"
-    description = "Hello Adam."
-    }
+variable "adam" {
+  type = string
+  default = "Adam"
+  description = "Hello Adam."
+}
 
-    variable "bob" {
-    type = number
-    default = 35
-    description = "Hello David."
-    }
+variable "bob" {
+  type = number
+  default = 35
+  description = "Hello David."
+}
 
-    variable "david" {
-    type = bool
-    default = false
-    description = "Hello David."
-    }
+variable "david" {
+  type = bool
+  default = false
+  description = "Hello David."
+}
 
-    variable "taylor" {
-    type = list(string)
-    default = ["T", "A", "Y", "L", "O", "R"]
-    description = "Hellow Taylor"
-    }
+variable "taylor" {
+  type = list(string)
+  default = ["T", "A", "Y", "L", "O", "R"]
+  description = "Hellow Taylor"
+}
 ```
 
 ## Testing
@@ -110,5 +110,4 @@ Testing sorting medium files...
 2023-01-02 21:49:11,364 - logger - DEBUG - This is a debug message
 2023-01-02 21:49:11,364 - logger - DEBUG - Formating file test/files/input-files/medium2.tf
 2023-01-02 21:49:11,366 - logger - DEBUG - Writing output file to test/files/output-files/medium2.tf
-
 ```
