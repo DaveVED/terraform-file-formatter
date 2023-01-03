@@ -20,20 +20,18 @@ This CLI allows your to.
 - [x] Support for `variable.tf` files that have our supported blocksblocks. And support for `all` variable block types. 
 
 ## Usage.
+### Sort
+In order to sort a variable files you pas in N files. Using the following command.
 
 ```
-    # Sort user provided files.
-    ./tf/main.py sort -file test/files/input-files/medium1.tf
-    ./tf/main.py sort -file test/files/easy-files/medium1.tf test/files/input-files/easy3.tf
-```
-
-Validate your files with this usage, but checking the same file you passed in, and ensuring it's formating correctly.
-
-Here is an example. Using the following command.
-```
+# Sort user provided files.
 ./tf/main.py sort -file test/files/input-files/medium1.tf
+./tf/main.py sort -file test/files/easy-files/medium1.tf test/files/input-files/easy3.tf
 ```
-### Before File.
+
+To Validate the osrt with this usage, simply check the same file you passed in to see if it sorted correclty. using the example above, you should see something like the below in regards to file changes. 
+
+#### Before File.
 ```hcl
 variable "bob" {
   type = number
@@ -60,7 +58,7 @@ variable "taylor" {
 }
 ```
 
-### After File.
+#### After File.
 ```hcl
 variable "adam" {
   type = string
