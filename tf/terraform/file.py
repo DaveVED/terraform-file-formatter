@@ -25,7 +25,7 @@ class TerraformFile:
         with open(file_path, "r") as file:
             return hcl2.load(file)
 
-    def sort(self, blocks: dict, block_type: str, order: bool) -> dict:
+    def sort(self, content: dict, block_type: str, order: bool) -> dict:
         """Sort the blocks in a Terraform file by resource type.
 
         Args:
@@ -36,7 +36,7 @@ class TerraformFile:
             dict: The sorted blocks.
         """
         if block_type == BlockType.variable:
-            variables = blocks["variable"]
+            variables = content["variable"]
             sorted_ = sorted(variables, key=lambda d: list(d.keys())[0])
             return sorted_
 
