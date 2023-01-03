@@ -1,13 +1,13 @@
-variable "adam" {
-  type = string
-  default = "Adam"
-  description = "Hello Adam."
-}
-
 variable "bob" {
   type = number
   default = 35
   description = "Hello David."
+}
+
+variable "adam" {
+  type = string
+  default = "Adam"
+  description = "Hello Adam."
 }
 
 variable "david" {
