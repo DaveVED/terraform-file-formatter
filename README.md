@@ -1,5 +1,5 @@
 # terraform-formatter
-Python CLI provding terraform file manipulation (formating) functionality. Allowing you to format and write valid terraform files using `python`. Something that is typically only achievable in `go`. 
+Python CLI provding terraform file manipulation (formating) functionality. Allowing you to format and write valid terraform files using `python`. Something that is typically only achievable in `go` (if i did this again, I would have just forked their repo, but this was fun). 
 
 If you just just want to use the code to format and write a terraform file without the cli, you can check out the `./tf/terraform/writter.tf` file the `_format_block` handles the magic. 
 
